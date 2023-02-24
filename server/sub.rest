@@ -1,0 +1,50 @@
+GET http://localhost:28017/sub/
+###
+GET http://localhost:28017/info/Password/Selwyn12
+###
+GET http://localhost:28017/sub/Player/Bob%20Elliott
+###
+GET http://localhost:28017/sub/name/Amara
+###
+
+GET http://localhost:28017/sub/collage/Indiana%20University
+###
+
+GET http://localhost:28017/sub/weight/79
+###
+GET http://localhost:28017/sub/63ec70681096cf6f052aca6a
+
+###
+
+###
+POST http://localhost:28017/sub/
+Content-Type: application/json
+
+{
+"name": "Amara",
+"height": "7,9",
+"age": 20
+}
+
+###
+POST http://localhost:28017/info/
+Content-Type: application/json
+
+{
+"Email": "george.se@northastern.edu",
+"Password": "12345"
+}
+
+###
+GET http://localhost:28017/info/Email/george.se@northastern.edu
+###
+
+DELETE http://localhost:28017/sub/63f6856360e4b71878a09413
+
+###
+PATCH http://localhost:28017/sub/63ec821fade64f233dd6c310
+Content-Type: application/json
+
+{
+"age": 20
+}

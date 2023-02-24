@@ -1,0 +1,18 @@
+.container {
+    margin: 50px auto;
+    width: 640px;
+    
+  }
+   
+  .login {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 20px 20px;
+    width: 310px;
+
+  }
+  .box{
+    border-color: aliceblue;
+    border-style: groove;
+    border-radius: 10px
+  }
