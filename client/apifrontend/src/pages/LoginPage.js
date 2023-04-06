@@ -52,32 +52,30 @@ function LoginPage() {
     setError('Invalid email or password');
   }
   };
-  
-
-
-  return (
-    <div class="container"> 
-      <div class="login">
-        <h1>Login to the Database </h1>
-    <form onSubmit={handleSubmit}>
-      <label>
-            <p>Email:</p>
-            <input class="box" type="email" value={email} onChange={handleEmailChange} />
-      </label>
-      <label>
-      <p>Password:</p>
-        <input class="box" type="password" value={password} onChange={handlePasswordChange} />
-      </label>
-      {error && <div>{error}</div>}
-          <button class="submit" type="submit">Login</button>
-          <div>
-          <a className="button-56" href="/register">
-      Don't have an account yet? Register!
-      </a>
-       </div>
-        </form>
+    
+    return (
+      <div className="canvas-login-container">
+        <div className="canvas-login-box">
+          <h1 className="canvas-login-title">Northeastern University</h1>
+          <form onSubmit={handleSubmit}>
+            <label>
+              <strong>myNortheastern Username:</strong>
+              <input className="canvas-input" type="email" value={email} onChange={handleEmailChange} />
+            </label>
+            <label>
+              <strong>myNortheastern Password:</strong>
+              <input className="canvas-input" type="password" value={password} onChange={handlePasswordChange} />
+            </label>
+            {error && <div className="canvas-error">{error}</div>}
+            <button className="canvas-submit" type="submit">Login</button>
+            <div>
+              <a className="canvas-register" href="/register">
+                Don't have an account yet? Register!
+              </a>
+            </div>
+          </form>
         </div>
       </div>
-  );
-}
+    );
+  }
 export default LoginPage;
