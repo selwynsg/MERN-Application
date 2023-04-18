@@ -21,5 +21,5 @@ run these commands in the terminal.
 cd server
 npm run devStart
 
-Lastly, if you want some student data, download the cvc file and import it into your mongodb.
+Lastly, if you want some student data, download the CSV file and import it into your mongodb.
 If you do not give a student a name, it will default to Anonymous. 
