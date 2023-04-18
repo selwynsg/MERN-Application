@@ -102,5 +102,90 @@ async function validateUser(username, password) {
     cookie = null;
     res.sendStatus(200);
   });
+
+
+
   
-  app.listen(28017, () => console.log('Listening on port 28017'));
+
+  const questionSchema = new mongoose.Schema({
+    studentName: String,
+    question: String,
+    timestamp: Date,
+  });
+  
+const Question = mongoose.model('Question', questionSchema);
+  
+app.get('/questions/grouped', async (req, res) => {
+  try {
+    const date = req.query.date;
+    const startOfDay = new Date(date);
+    startOfDay.setUTCHours(0, 0, 0, 0);
+    const endOfDay = new Date(date);
+    endOfDay.setUTCHours(23, 59, 59, 999);
+    
+    const questions = await Question.find({
+      timestamp: { $gte: startOfDay, $lte: endOfDay },
+    });
+
+    const formattedQuestions = questions.map((question) => ({
+      studentName: question.studentName,
+      question: question.question,
+      timestamp: question.timestamp,
+    }));
+    res.status(200).json(formattedQuestions);
+  } catch (error) {
+    console.error('Error fetching grouped questions:', error);
+    res.status(500).send('Error fetching grouped questions.');
+  }
+});
+
+
+  const http = require('http').createServer(app);
+  const io = require('socket.io')(http, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"],
+      allowedHeaders: ["my-custom-header"],
+      credentials: true
+    }
+  });
+
+  app.post('/questions', async (req, res) => {
+    try {
+      const question = new Question(req.body);
+      await question.save();
+  
+      // Emit a new question event
+      io.emit('new-question', question);
+  
+      res.status(201).send('Question submitted successfully.');
+    } catch (error) {
+      console.error('Error submitting question:', error);
+      res.status(500).send('Error submitting question.');
+    }
+  });
+  
+
+  
+  app.get('/questions', async (req, res) => {
+    try {
+      const questions = await Question.find({});
+      const formattedQuestions = questions.map(question => ({
+        studentName: question.studentName,
+        question: question.question,
+        timestamp: question.timestamp
+      }));
+      res.status(200).json(formattedQuestions);
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      res.status(500).send('Error fetching questions.');
+    }
+  });
+  
+
+
+
+  
+  http.listen(28017, () => {
+    console.log('Server listening on port 28017');
+  });

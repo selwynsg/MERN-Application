@@ -1,0 +1,7 @@
+version: '3'
+services:
+  server:
+    build: .
+    image: server-docker
+    ports:
+      - '28017:28017'

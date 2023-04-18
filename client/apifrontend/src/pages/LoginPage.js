@@ -46,8 +46,12 @@ function LoginPage() {
     body: JSON.stringify({ email, password })
    });
     console.log(response);
-  if (response.ok) {
-    navigate('/homePage');
+    if (response.ok) {
+      if (email.includes("@northeastern.edu")) {
+        navigate('/teacherPage');
+      } else {
+        navigate('/homePage');
+      }
   } else {
     setError('Invalid email or password');
   }

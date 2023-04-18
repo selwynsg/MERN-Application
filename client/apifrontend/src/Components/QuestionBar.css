@@ -1,0 +1,64 @@
+/* QuestionBar.css */
+.question-bar {
+    position: relative;
+    bottom: -15px;
+    left: calc(5% + -40px); /* Adjust the left position to match the width of the logo-bar and add a gap */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: black;
+    border-radius: 8px;
+    padding: 10px;
+    width: 190px;
+    margin: 10px; /* Add margin around the bar */
+    z-index: 10003; /* Optional: add a z-index higher than the logo-bar to ensure the bar is on top of other elements */
+}  
+  
+.question-bar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex; /* Add display: flex */
+    align-items: center; /* Center the image vertically */
+    justify-content: center; /* Center the image horizontally */
+  }
+  
+  
+ 
+.question-bar button img {
+    width: 24px;
+    position: relative; /* Add position: relative */
+    left: 76px; /* Center the image horizontally */
+    top: 50%; /* Center the image vertically */
+}
+  
+  .question-bar form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .question-bar input[type="text"] {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: inset 0 0 2px 1px red;
+    margin-bottom: 5px;
+  }
+  
+  .question-bar button[type="submit"] {
+    padding: 5px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .question-bar button[type="submit"]:hover {
+    background-color: red;
+  }
+  

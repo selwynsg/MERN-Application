@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 10%;
+  }
+  
+  .header-item {
+    margin: 0 10px;
+    color: #b52828;
+    font-weight: bold;
+    font-size: large;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .header-button:hover {
+    background-color: #007bff;
+  }
+  
