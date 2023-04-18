@@ -10,11 +10,11 @@ Uses web-socket io for communication between Student and Professor in the live v
 
 To run the application, follow these steps:
 
-For Front-End:
-run these commands in the terminal. 
-cd client
-cd apifrontend
-npm start
+- For Front-End:
+- run these commands in the terminal. 
+- cd client
+- cd apifrontend
+- npm start
 
 For Back-End:
 run these commands in the terminal.
